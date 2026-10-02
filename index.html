@@ -1,0 +1,248 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Birthday Surprise 💗</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating hearts -->
+    <div class="hearts">
+        <span>💗</span>
+        <span>💕</span>
+        <span>💖</span>
+        <span>💞</span>
+        <span>💓</span>
+        <span>💗</span>
+    </div>
+
+    <!-- Balloons -->
+    <div class="balloon balloon1">🎈</div>
+    <div class="balloon balloon2">🎈</div>
+    <div class="balloon balloon3">🎈</div>
+    <div class="balloon balloon4">🎈</div>
+
+
+    <!-- MAIN CARD -->
+    <main class="birthday-card">
+
+        <div class="sparkles">
+            ✨ ✨ ✨
+        </div>
+
+        <p class="tiny-text">
+            Psst... I made something for you 👀
+        </p>
+
+        <h1>Happy Birthday! 🎂</h1>
+
+        <h2>
+            I have a tiny surprise...
+        </h2>
+
+        <div class="cake">
+            🎂
+        </div>
+
+        <p class="warning">
+            Whatever you do...
+        </p>
+
+        <h3>
+            DO NOT CLICK THE BUTTON 👀
+        </h3>
+
+        <!-- THE BUTTON -->
+        <button id="surpriseButton" onclick="birthdaySurprise()">
+            DON'T CLICK ME 👀
+        </button>
+
+
+        <!-- SURPRISE -->
+        <section id="surprise" class="surprise">
+
+            <div class="celebration">
+                🎉 🎊 🎉
+            </div>
+
+            <h1>
+                SURPRISE!!! 💗
+            </h1>
+
+            <h2>
+                Happy Birthday, <span id="name">[Name]</span>! 🥳
+            </h2>
+
+            <div class="big-heart">
+                💗
+            </div>
+
+            <p>
+                I hope you have the most wonderful birthday
+                and that this year brings you lots of happiness,
+                laughter, and beautiful memories.
+            </p>
+
+            <p>
+                You deserve all the good things coming your way.
+                Keep smiling, keep being yourself,
+                and never forget how loved and appreciated you are. 🌷
+            </p>
+
+            <p class="special-message">
+                I'm really glad you're here. 💕
+            </p>
+
+            <p>
+                Here's to another year of adventures,
+                random conversations, silly moments,
+                and memories worth keeping. ✨
+            </p>
+
+            <div class="birthday-ending">
+                🎂 HAPPY BIRTHDAY! 🎂
+            </div>
+
+            <p class="signature">
+                — From someone who cares about you 💌
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- MUSIC -->
+
+    <audio id="birthdayMusic" loop>
+        <source src="birthday-song.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- CONFETTI CONTAINER -->
+
+    <div id="confetti-container"></div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function birthdaySurprise() {
+
+            // Show the surprise
+            const surprise = document.getElementById("surprise");
+
+            surprise.classList.add("show");
+
+
+            // Change button
+            const button = document.getElementById("surpriseButton");
+
+            button.innerHTML = "🎉 SURPRISE! 🎉";
+
+            button.disabled = true;
+
+
+            // Play music
+            const music = document.getElementById("birthdayMusic");
+
+            music.play();
+
+
+            // Create confetti
+            createConfetti();
+
+
+            // Make the page celebrate
+            document.body.classList.add("celebration-mode");
+        }
+
+
+        function createConfetti() {
+
+            const container =
+                document.getElementById("confetti-container");
+
+            const confettiSymbols = [
+                "🎉",
+                "🎊",
+                "💗",
+                "💕",
+                "✨",
+                "⭐",
+                "🌸",
+                "🎂"
+            ];
+
+
+            // Create 100 pieces of confetti
+
+            for (let i = 0; i < 100; i++) {
+
+                const confetti =
+                    document.createElement("div");
+
+                confetti.classList.add("confetti");
+
+                confetti.innerHTML =
+                    confettiSymbols[
+                        Math.floor(
+                            Math.random() *
+                            confettiSymbols.length
+                        )
+                    ];
+
+
+                // Random position
+
+                confetti.style.left =
+                    Math.random() * 100 + "vw";
+
+
+                // Random animation duration
+
+                confetti.style.animationDuration =
+                    (Math.random() * 3 + 2) + "s";
+
+
+                // Random delay
+
+                confetti.style.animationDelay =
+                    Math.random() * 2 + "s";
+
+
+                // Random size
+
+                confetti.style.fontSize =
+                    (Math.random() * 20 + 15) + "px";
+
+
+                container.appendChild(confetti);
+
+
+                // Remove after animation
+
+                setTimeout(() => {
+
+                    confetti.remove();
+
+                }, 6000);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
