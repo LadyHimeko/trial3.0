@@ -1,0 +1,551 @@
+```css
+/* =========================
+   BASIC PAGE
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dff3e4,
+            #edf8ef,
+            #c8e6d0
+        );
+
+    overflow-x: hidden;
+
+    transition: background 1s ease;
+}
+
+
+/* =========================
+   CELEBRATION MODE
+========================= */
+
+body.celebration-mode {
+    background:
+        linear-gradient(
+            135deg,
+            #c8ead1,
+            #e5f5e8,
+            #b7ddc2
+        );
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.birthday-card {
+    width: 90%;
+    max-width: 620px;
+
+    margin: 50px 0;
+    padding: 45px 35px;
+
+    background:
+        rgba(255, 255, 255, 0.95);
+
+    border-radius: 35px;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 10;
+
+    box-shadow:
+        0 15px 50px
+        rgba(46, 125, 70, 0.20);
+
+    border:
+        2px solid rgba(105, 170, 120, 0.25);
+
+    animation: cardAppear 1.2s ease;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.tiny-text {
+    color: #7c9b83;
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+}
+
+h1 {
+    color: #287a45;
+
+    font-size: 48px;
+
+    margin: 10px 0;
+
+    animation: gentleBounce 2s infinite;
+}
+
+h2 {
+    color: #4d8c5b;
+}
+
+h3 {
+    color: #3b8050;
+
+    font-size: 22px;
+}
+
+p {
+    color: #536b59;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+.warning {
+    margin-bottom: 5px;
+
+    color: #829888;
+}
+
+.sparkles {
+    font-size: 28px;
+
+    animation: sparkle 1.5s infinite;
+}
+
+@keyframes sparkle {
+
+    0%, 100% {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+
+        transform: scale(1.2);
+    }
+}
+
+@keyframes gentleBounce {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+
+/* =========================
+   CAKE
+========================= */
+
+.cake {
+    font-size: 90px;
+
+    margin: 20px;
+
+    display: inline-block;
+
+    filter:
+        drop-shadow(0 0 10px #8bc99b);
+
+    animation:
+        cakeGlow 1.5s infinite alternate;
+}
+
+@keyframes cakeGlow {
+
+    from {
+        transform: scale(1);
+
+        filter:
+            drop-shadow(
+                0 0 8px #8bc99b
+            );
+    }
+
+    to {
+        transform: scale(1.1);
+
+        filter:
+            drop-shadow(
+                0 0 30px #59ad70
+            );
+    }
+}
+
+
+/* =========================
+   DON'T CLICK BUTTON
+========================= */
+
+button {
+    border: none;
+
+    padding: 17px 32px;
+
+    margin: 20px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4c9b62,
+            #78bd89
+        );
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(55, 130, 75, 0.30);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+
+    box-shadow:
+        0 12px 30px
+        rgba(55, 130, 75, 0.45);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:disabled {
+    cursor: default;
+}
+
+
+/* =========================
+   SURPRISE MESSAGE
+========================= */
+
+.surprise {
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform:
+        scale(0.7)
+        translateY(30px);
+
+    transition:
+        max-height 1.5s ease,
+        opacity 1s ease,
+        transform 1s ease;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf8ef,
+            #f7fbf7
+        );
+
+    border:
+        1px solid #c5e2cb;
+
+    border-radius: 30px;
+}
+
+.surprise.show {
+
+    max-height: 1000px;
+
+    padding: 30px 25px;
+
+    margin-top: 20px;
+
+    opacity: 1;
+
+    transform:
+        scale(1)
+        translateY(0);
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(75, 145, 90, 0.10);
+}
+
+
+/* =========================
+   SURPRISE CONTENT
+========================= */
+
+.celebration {
+    font-size: 40px;
+
+    animation:
+        celebrationBounce 0.8s infinite alternate;
+}
+
+@keyframes celebrationBounce {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+.big-heart {
+    font-size: 65px;
+
+    margin: 15px;
+
+    animation:
+        heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.special-message {
+    color: #36804b;
+
+    font-weight: bold;
+
+    font-size: 20px;
+}
+
+.birthday-ending {
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border-radius: 20px;
+
+    background: #f1f9f2;
+
+    color: #328048;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    border:
+        1px solid #c5e2cb;
+}
+
+.signature {
+    color: #829888;
+
+    font-size: 15px;
+
+    margin-top: 25px;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts span {
+
+    position: fixed;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    opacity: 0.7;
+
+    z-index: 1;
+
+    animation:
+        floatHeart 8s linear infinite;
+}
+
+.hearts span:nth-child(1) {
+    left: 8%;
+}
+
+.hearts span:nth-child(2) {
+    left: 25%;
+
+    animation-delay: 2s;
+}
+
+.hearts span:nth-child(3) {
+    left: 42%;
+
+    animation-delay: 4s;
+}
+
+.hearts span:nth-child(4) {
+    left: 60%;
+
+    animation-delay: 1s;
+}
+
+.hearts span:nth-child(5) {
+    left: 78%;
+
+    animation-delay: 3s;
+}
+
+.hearts span:nth-child(6) {
+    left: 90%;
+
+    animation-delay: 5s;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   BALLOONS
+========================= */
+
+.balloon {
+
+    position: fixed;
+
+    font-size: 65px;
+
+    z-index: 2;
+
+    animation:
+        balloonFloat 4s ease-in-out infinite;
+}
+
+.balloon1 {
+    left: 5%;
+    top: 15%;
+}
+
+.balloon2 {
+    right: 6%;
+    top: 20%;
+
+    animation-delay: 1s;
+}
+
+.balloon3 {
+    left: 8%;
+    bottom: 10%;
+
+    animation-delay: 2s;
+}
+
+.balloon4 {
+    right: 8%;
+    bottom: 8%;
+
+    animation-delay: 3s;
+}
+
+@keyframes balloonFloat {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            translateY(-20px)
+            rotate(5deg);
+    }
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+#confetti-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer
+```
